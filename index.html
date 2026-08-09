@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maths Concept Quiz Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <audio id="bg-music" loop src="" preload="auto"></audio>
+
+  <main class="app">
+    <!-- Welcome / Home -->
+    <section id="welcome" class="card center">
+      <h1 class="title">   Welcome to Maths Concept Quiz   </h1>
+
+      <div class="input-row">
+        <input id="player-name" type="text" placeholder="Enter your name" />
+        <button id="start-btn" class="btn neon">Start Game</button>
+      </div>
+
+      <div class="home-actions">
+        <button id="admin-btn" class="btn outline">Admin Login</button>
+        <button id="view-history-btn" class="btn outline">View My History</button>
+      </div>
+
+      <div class="music-controls">
+        <button id="music-toggle" class="btn small neon">🔈 Mute</button>
+      </div>
+
+      <p class="small muted">A small Quiz gmae project demo built with HTML, CSS & JS ...VM </p>
+    </section>
+
+    <!-- Admin Login Modal (simple) -->
+    <section id="admin-login" class="card modal hidden">
+      <h2>Admin Login</h2>
+      <input id="admin-pass" type="password" placeholder="Enter admin password" />
+      <div class="modal-actions">
+        <button id="admin-submit" class="btn neon">Login</button>
+        <button id="admin-cancel" class="btn outline">Cancel</button>
+      </div>
+      <p id="admin-msg" class="muted small"></p>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="admin-dashboard" class="card hidden">
+      <h2>Admin Dashboard</h2>
+      <div class="admin-controls">
+        <button id="clear-history" class="btn danger">Clear All History</button>
+        <button id="admin-back" class="btn outline">Back to Game</button>
+      </div>
+
+      <div id="history-list" class="history-list"></div>
+    </section>
+
+    <!-- Category & Difficulty Selection -->
+    <section id="setup" class="card hidden">
+      <h2>Hi <span id="player-display"></span> — Choose Category</h2>
+
+      <div class="options-grid">
+        <label class="option">
+          <input type="radio" name="category" value="Sets" />
+          <div class="option-card">Sets</div>
+        </label>
+
+        <label class="option">
+          <input type="radio" name="category" value="Relations & Functions" />
+          <div class="option-card">Relations & Functions</div>
+        </label>
+
+        <label class="option">
+          <input type="radio" name="category" value="Limits" />
+          <div class="option-card">Limits</div>
+        </label>
+      </div>
+
+      <h3>Choose Difficulty</h3>
+      <div class="options-grid">
+        <label class="option">
+          <input type="radio" name="difficulty" value="Easy" />
+          <div class="option-card">Easy (10 Qs)</div>
+        </label>
+
+        <label class="option">
+          <input type="radio" name="difficulty" value="Medium" />
+          <div class="option-card">Medium (7 Qs)</div>
+        </label>
+
+        <label class="option">
+          <input type="radio" name="difficulty" value="Hard" />
+          <div class="option-card">Hard (5 Qs)</div>
+        </label>
+      </div>
+
+      <div class="setup-actions">
+        <button id="begin-btn" class="btn neon">Begin Quiz</button>
+        <button id="setup-back" class="btn outline">Go Back</button>
+      </div>
+    </section>
+
+    <!-- Quiz Screen -->
+    <section id="quiz" class="card hidden">
+      <div class="quiz-header">
+        <div class="left">
+          <h3 id="q-category">Category</h3>
+          <p id="q-difficulty" class="muted small">Difficulty</p>
+        </div>
+        <div class="right controls-row">
+          <div id="timer" class="timer">15</div>
+          <button id="hint-btn" class="btn small">Hint</button>
+          <div class="mute-small">
+            <button id="tts-toggle" class="btn small outline">🔊</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-wrap">
+        <div id="progress-bar" class="progress"></div>
+      </div>
+
+      <div id="question-card" class="question-card">
+        <h2 id="question-text">Question text</h2>
+        <div id="options" class="options"></div>
+      </div>
+
+      <div class="quiz-footer">
+        <div id="motivation" class="muted">Be confident. You got this!</div>
+        <div class="footer-actions">
+          <button id="skip-btn" class="btn outline">Skip</button>
+          <button id="next-btn" class="btn neon hidden">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result Screen -->
+    <section id="result" class="card hidden">
+      <h2>Results</h2>
+      <div id="result-summary" class="result-summary">
+        <!-- Filled dynamically -->
+      </div>
+
+      <div class="result-actions">
+        <button id="play-again" class="btn neon">Play Again</button>
+        <button id="go-home" class="btn outline">Go Home</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating feedback text -->
+  <div id="floating-feedback" class="floating-feedback"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

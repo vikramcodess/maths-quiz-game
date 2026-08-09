@@ -235,17 +235,6 @@ function showPanel(panelName) {
    Admin login & dashboard
    --------------------------- */
 function handleAdminLogin() {
-  const pass = el.adminPass.value.trim();
-  if (pass === 'BCA2025') {
-    localStorage.setItem(STORAGE_KEYS.isAdmin, 'true');
-    appState.isAdmin = true;
-    el.adminMsg.textContent = "✅ Welcome, Admin";
-    el.adminPass.value = '';
-    showAdminDashboard();
-  } else {
-    el.adminMsg.textContent = "❌ Wrong Password";
-    speak("Wrong Password", 0.9);
-  }
   localStorage.setItem(STORAGE_KEYS.isAdmin, 'true');
   appState.isAdmin = true;
 

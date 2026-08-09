@@ -246,6 +246,13 @@ function handleAdminLogin() {
     el.adminMsg.textContent = "❌ Wrong Password";
     speak("Wrong Password", 0.9);
   }
+  localStorage.setItem(STORAGE_KEYS.isAdmin, 'true');
+  appState.isAdmin = true;
+
+  el.adminMsg.textContent = "✅ Demo admin mode enabled";
+  el.adminPass.value = '';
+
+  showAdminDashboard();
 }
 
 function showAdminDashboard() {
